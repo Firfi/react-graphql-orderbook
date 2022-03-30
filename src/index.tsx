@@ -18,14 +18,12 @@ import dayjs from 'dayjs';
 
 dayjs.extend(utc);
 
-// TODO PORT
 const httpLink = new HttpLink({
-  uri: 'http://127.0.0.1:3001/'
+  uri: process.env.REACT_APP_GRAPHQL_URL || 'http://127.0.0.1:3001/'
 });
 
-// TODO PORT
 const wsLink = new GraphQLWsLink(createWSClient({
-  url: 'ws://127.0.0.1:3001/ws',
+  url: process.env.REACT_APP_GRAPHQL_WS_URL || 'ws://127.0.0.1:3001/ws',
 }));
 
 const splitLink = split(
