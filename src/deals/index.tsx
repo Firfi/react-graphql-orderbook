@@ -1,11 +1,16 @@
+import styled from 'styled-components';
+
 import { DealList } from './dealList';
-import { DealChart } from './dealChart';
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 export const Deals = () => {
   return (
-    <div className="deals">
-      <DealChart />
+    <Wrapper className="deals">
       <DealList />
-    </div>
+    </Wrapper>
   );
 };

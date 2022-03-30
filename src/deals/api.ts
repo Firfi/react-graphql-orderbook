@@ -10,7 +10,7 @@ interface DealsResponse {
 
 interface DealsSubscriptionResponse { deals: ApiDeal }
 
-const CACHE_LIMIT = 100000;
+const CACHE_WINDOW = 100;
 
 const parseApiDeal = (apiDeal: ApiDeal): Deal => ({
   ...apiDeal,
@@ -27,8 +27,8 @@ export const useDeals = () => {
         if (!subscriptionData.data) return prev;
         const newFeedItem = subscriptionData.data.deals;
         // todo not performant at all
-        const dupe = !!prev.history.find(({ id }) => id === newFeedItem.id);
-        return {...prev, history: [...(dupe ? [] : [newFeedItem]), ...(prev.history || [])].slice(0, CACHE_LIMIT)};
+        const dupe = !!prev.history?.find(({ id }) => id === newFeedItem.id);
+        return {...prev, history: [...(dupe ? [] : [newFeedItem]), ...(prev.history || [])].slice(0, CACHE_WINDOW)};
       },
     });
     return () => unsubscribe();

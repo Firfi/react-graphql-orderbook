@@ -16,28 +16,6 @@ import { getMainDefinition } from '@apollo/client/utilities';
 import utc from 'dayjs/plugin/utc';
 import dayjs from 'dayjs';
 
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js';
-import { Line } from 'react-chartjs-2';
-
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-);
-
 dayjs.extend(utc);
 
 // TODO PORT
@@ -65,7 +43,13 @@ const splitLink = split(
 
 export const apolloClient = new ApolloClient({
   link: splitLink,
-  cache: new InMemoryCache()
+  cache: new InMemoryCache({
+    typePolicies: {
+      Order: {
+        keyFields: ['id', 'kind'],
+      }
+    }
+  })
 });
 
 ReactDOM.render(

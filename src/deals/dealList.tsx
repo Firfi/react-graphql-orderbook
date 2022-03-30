@@ -9,7 +9,7 @@ export const DealList = () => {
       <h2>Latest Deals</h2>
       <div className="deals-list">
         {deals!.slice(0, 20).map((deal) => (
-          <div key={deal.id}>Qty: {deal.quantity} for ${deal.price} per one</div>
+          <div key={deal.id}>Qty: {deal.quantity} for ${deal.price.toString()} per one</div>
         ))}
       </div>
     </div>
