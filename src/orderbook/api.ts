@@ -2,7 +2,7 @@ import { useQuery } from '@apollo/client';
 import { ApiOrder, Order, OrderId, OrderKind } from './types';
 import { useEffect, useState } from 'react';
 import sortedIndexBy from 'lodash/sortedIndexBy';
-import { GET_ORDERBOOK_QUERY, ORDER_ADDED_SUBSCRIPTION, ORDER_REMOVED_SUBSCRIPTION } from '../queries/orderbook';
+import { GET_ORDERBOOK_QUERY, ORDER_ADDED_SUBSCRIPTION, ORDER_REMOVED_SUBSCRIPTION } from './queries';
 
 interface OrderbookResponse {
   orderbook: {

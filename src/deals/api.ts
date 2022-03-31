@@ -1,8 +1,8 @@
 import { useQuery } from '@apollo/client';
 import { ApiDeal, Deal } from './types';
-import { DEALS_SUBSCRIPTION, GET_DEALS_QUERY } from '../queries/deals';
 import { useEffect, useState } from 'react';
 import dayjs from 'dayjs';
+import { DEALS_SUBSCRIPTION, GET_DEALS_QUERY } from './queries';
 
 interface DealsResponse {
   history: ApiDeal[];
