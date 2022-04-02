@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
 export const GET_DEALS_QUERY = gql`
-    query GetDeals { history { price, quantity, id, createdAt } }
+    query GetDeals { history { price, quantity, id, createdAt, kind } }
 `;
 export const DEALS_SUBSCRIPTION = gql`
-    subscription OnDeal { deals { id, price, quantity, createdAt } }
+    subscription OnDeal { deals { id, price, quantity, createdAt, kind } }
 `;

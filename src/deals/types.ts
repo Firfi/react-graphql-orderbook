@@ -1,3 +1,5 @@
+import { OrderKind } from '../orderbook/types';
+
 interface DealBrand {
   _type: "Deal";
 }
@@ -9,6 +11,7 @@ export interface ApiDeal {
   quantity: number;
   id: DealId;
   createdAt: string;
+  kind: OrderKind;
 }
 
 export interface Deal {
@@ -16,4 +19,5 @@ export interface Deal {
   quantity: number;
   id: DealId;
   createdAt: Date;
+  kind: OrderKind;
 }

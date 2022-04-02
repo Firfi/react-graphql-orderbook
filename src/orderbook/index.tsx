@@ -1,5 +1,6 @@
 import { useOrderbook } from './api';
 import styled from 'styled-components';
+import { orderKindColors } from '../colors';
 
 const Wrapper = styled.div`
   display: flex;
@@ -23,11 +24,11 @@ const BidOrAsk = styled.div`
 `;
 
 const Bid = styled(BidOrAsk)`
-  color: green;
+  color: ${orderKindColors.BUY};
 `;
 
 const Ask = styled(BidOrAsk)`
-  color: red;
+  color: ${orderKindColors.SELL};
 `;
 
 export const Orderbook = () => {
